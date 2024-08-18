@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock - Rafick AHOUNOU</title>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <div id="clock1" class="w-max flex flex-col sm:flex-row items-center gap-8">
+        <div class="clockCase">
+            <span id="hour" class="text-[10.8rem] relative w-full h-full flex justify-center z-10">
+              <span class="spanContent"></span>
+            </span>
+            <div class="absolute w-full h-1 bg-[--color-primary] z-10"></div>
+            <span id="ampm" class="text-2xl absolute left-5 bottom-5">AM</span>
+        </div>
+        <div class="clockCase">
+            <span id="minute" class="text-[10.8rem] relative w-full h-full flex justify-center z-10">
+                <span class="spanContent"></span>
+            </span>
+            <div class="absolute w-full h-1 bg-[--color-primary] z-10"></div>
+        </div>
+        <div class="clockCase">
+            <span id="seconde" class="text-[10.8rem] relative w-full h-full flex justify-center z-10">
+                <span class="spanContent"></span>
+            </span>
+            <div class="absolute w-full h-1 bg-[--color-primary] z-10"></div>
+        </div>
+    </div>
+
+    <div class="text-xl">by Rafick AHOUNOU</div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

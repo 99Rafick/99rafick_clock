@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-primary: #f1f5fc;
+}
+
+:root {
+  font-family: "Anton", sans-serif;
+  line-height: 1.5;
+
+  background-color: var(--color-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+    @apply w-screen h-screen flex items-center flex-col gap-10 justify-center overflow-hidden relative
+}
+
+.clockCase {
+    @apply relative flex-none w-64 h-64 rounded-3xl flex items-center justify-center overflow-hidden
+    after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:w-1.5 after:outline after:outline-[6px] after:z-10 after:outline-[--color-primary] after:h-12 after:bg-black
+    before:absolute before:top-1/2 before:right-0 before:-translate-y-1/2 before:w-1.5 before:outline before:outline-[6px] before:z-20 before:outline-[--color-primary] before:h-12 before:bg-black
+}
+
+.clockCase > .caseLine {
+  @apply absolute -rotate-45 -translate-x-1/2 w-[150%] h-[1px] bg-black;
+}
+
+
+
+#hour .spanContent , #minute .spanContent, #seconde .spanContent {
+  @apply absolute grid transition duration-300 ease-out
+}
+
+#hour .spanContent div, #minute .spanContent div, #seconde .spanContent div {
+    @apply  w-max h-max flex justify-center place-self-center
+}
