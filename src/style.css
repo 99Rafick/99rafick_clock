@@ -37,9 +37,13 @@ body {
 
 
 #hour .spanContent , #minute .spanContent, #seconde .spanContent {
-  @apply absolute grid transition duration-300 ease-out
+  @apply absolute grid 
 }
 
 #hour .spanContent div, #minute .spanContent div, #seconde .spanContent div {
-    @apply  w-max h-max flex justify-center place-self-center
+    @apply  w-max h-max flex justify-center place-self-center 
+}
+
+.trans {
+  transition: transform 0.3s ease;
 }
