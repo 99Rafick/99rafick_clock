@@ -21,22 +21,42 @@ clockCases.forEach((caseElement) => {
     } while (i < 37);
 });
 
-// Fonction générale pour définir un élément avec animation
 const setElement = (value, spanElement) => {
-    spanElement.innerHTML = '';
+    const currentDiv = spanElement.querySelector('div');
+    
+    if (currentDiv) {
+        // Appliquer l'animation de sortie
+        currentDiv.classList.add('trans-out');
+        currentDiv.style.transform = `translateY(-100%)`; // Monte pour disparaître
+
+        // Attendre la fin de l'animation de sortie avant de supprimer et d'ajouter le nouveau
+        currentDiv.addEventListener('transitionend', () => {
+            spanElement.removeChild(currentDiv);
+            addNewElement(value, spanElement);
+        }, { once: true });
+        
+    } else {
+        addNewElement(value, spanElement);
+    }
+};
+
+// Fonction pour ajouter un nouvel élément avec une animation d'entrée
+const addNewElement = (value, spanElement) => {
     const count = parseInt(value);
 
     const div = document.createElement('div');
     div.textContent = count < 10 ? '0' + count : count;
-    div.style.transform = `translateY(100%)`; // Position initiale en dehors de la vue
+    div.classList.add('trans'); // Animation d'entrée
+    div.style.transform = `translateY(100%)`; // Position de départ en bas
+
     spanElement.appendChild(div);
 
-    // Attendre un court instant pour ajouter la classe et déclencher la transition
+    // Ajouter une animation d'entrée après une petite attente
     setTimeout(() => {
-        div.classList.add('trans');
-        div.style.transform = `translateY(0)`; // Revenir à la position initiale
-    }, 10); // 10 ms devrait suffire
+        div.style.transform = `translateY(0)`;
+    }, 10);
 };
+
 
 // Mise à jour de l'horloge
 function updateClock() {
@@ -64,4 +84,4 @@ function updateClock() {
 }
 
 updateClock();
-setInterval(updateClock, 1000);
+setInterval(updateClock, 900);

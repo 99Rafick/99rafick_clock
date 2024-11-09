@@ -45,5 +45,10 @@ body {
 }
 
 .trans {
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
+}
+
+.trans-out {
+  transition: transform 0.1s ease;
+  opacity: 0;
 }
